@@ -8,6 +8,7 @@ import AppKit
 import UIKit
 #endif
 
+@MainActor
 public final class DeviceScreen {
     public static var width: CGFloat {
 #if os(iOS)
@@ -33,4 +34,22 @@ public final class DeviceScreen {
 #endif
     }
 
+    public static var deviceModel: String {
+        #if os(iOS)
+        UIDevice.current.model
+#else
+        return ""
+#endif
+    }
+
+    public static var systemName: String {
+        //    let systemName = await UIDevice.current.systemName
+        #if os(iOS)
+        return UIDevice.current.systemName
+#else
+        return Host.current().name ?? ""
+#endif
+
+    }
+//    let deviceModel = await UIDevice.current.model
 }
