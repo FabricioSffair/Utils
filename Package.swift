@@ -5,6 +5,7 @@ import PackageDescription
 
 let package = Package(
     name: "Utils",
+    platforms: [.macOS(.v14), .iOS(.v17), .tvOS(.v16), .watchOS(.v9), .macCatalyst(.v16)],
     products: [
         // Products define the executables and libraries a package produces, making them visible to other packages.
         .library(
